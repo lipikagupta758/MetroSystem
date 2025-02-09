@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;MetroSystem&apos;&#x0D;&#x0A;- Original project: &apos;MetroSystem&apos;&#x0D;&#x0A;- Original element: &apos;MetroSystem/src/main/java/metrosystem.MetroSystem&apos;" description="Delete element" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;metrosystem.MetroSystem" element2="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;metrosystem" elements="2" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1739079456207" subPackages="false" version="1.0"/>
+</session>

@@ -1,0 +1,42 @@
+package persistence;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import entity.Card;
+import entity.Transaction;
+import exceptions.LowAmountException;
+
+public class TransactionDaoImpl implements TransactionDao {
+	
+	@Override
+	public void insertTransactionRecord(int cardId, int startStation, int stationId, double fare) {
+		PreparedStatement preparedStatement = null;
+        Transaction transaction = new Transaction();
+        int id = 0;
+        Date issueDate = new Date(System.currentTimeMillis());
+
+        try {
+            Connection connection = helperconnection.getConnection();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            preparedStatement = connection.prepareStatement(
+                    "INSERT INTO Transaction (card_id, swipeIn_station, swipeOut_station, fare) VALUES(?, ?, ?, ?)"
+            );
+
+            preparedStatement.setInt(1, cardId);
+            preparedStatement.setInt(2, startStation);
+            preparedStatement.setInt(3, stationId);
+            preparedStatement.setDouble(4, fare);
+            preparedStatement.executeUpdate();
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return ;		
+	}
+
+}
